@@ -1,6 +1,6 @@
 import React from "react"
 
-const filmPreviewComponent = ({ film }) => 
+const FilmPreviewComponent = ({ film }) =>
     <div className="oneFilmBlock">
         <img src={film.poster} />
         <div className="filmInfo">
@@ -15,7 +15,7 @@ const filmPreviewComponent = ({ film }) =>
         </div>
     </div>
 
-filmPreviewComponent.React.propTypes = {
+FilmPreviewComponent.React.propTypes = {
     poster: React.propTypes.string,
     name: React.propTypes.string,
     description: React.propTypes.string,
@@ -25,5 +25,5 @@ filmPreviewComponent.React.propTypes = {
     duration: React.propTypes.object,
     premiere: React.propTypes.object,
 }
-export default { filmPreviewComponent }
+export default { FilmPreviewComponent }
 

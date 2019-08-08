@@ -1,20 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
-import filmPageComponent from "../../components/films/filmPageComponent";
+import NewsPageComponent from "../../components/news/newsPajeComponent";
 
 const mapStateToProps = state => ({
-    film: state.film
+    news: state.news
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    rateFilm(id, rating) {
-        dispatch(rateFilm(id, rating)) 
-    }
+
 });
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(filmPageComponent)
+)(NewsPageComponent)
 
 

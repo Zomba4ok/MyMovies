@@ -1,6 +1,6 @@
 import React from "react";
 
-const mainPageComponent = ({ news, topFilms, categories }) => (
+const MainPageComponent = ({ news, topFilms, categories }) => (
     <div className="root">
         <h1>MyFilms.com</h1>
         <div className="TopFilms">
@@ -16,10 +16,10 @@ const mainPageComponent = ({ news, topFilms, categories }) => (
         </div>
     </div>
 )
-
+//To add searching ny genres, producers, actors etc...
 // mainPageComponent.React.propTypes = {
 // }
 
-export default mainPageComponent;
+export default MainPageComponent;
 // correct category search link
 // add proptypes

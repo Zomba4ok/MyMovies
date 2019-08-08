@@ -1,7 +1,7 @@
 import React from "react";
 import NewsCommentComponent from "../newsComments/newsCommentsComponent.js"
 
-const newsPageComponent = ({ news }) =>
+const NewsPageComponent = ({ news }) => (
     <div className="root">
         <h3>{news.title}</h3>
         <div className="imageSet">
@@ -11,13 +11,16 @@ const newsPageComponent = ({ news }) =>
         <p>{news.context}</p>
         <div className="CommentsList">
             {news.comments.map((comment, i) =>
-                <NewsCommentComponent  newsComment=comment user=User key={i}/>)}
+                <NewsCommentComponent  newsComment=comment user=User key={i}/>)}//!!!!!!!!use only container not component
         </div>
     </div>
+);
 
 
-newsPageComponent.React.propTypes = {
+NewsPageComponent.React.propTypes = {
     title: React.propTypes.string,
     context: React.propTypes.string,
 //    image.image_file: React.propTypes.string
-}
+};
+
+export default NewsCommentComponent;

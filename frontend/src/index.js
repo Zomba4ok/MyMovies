@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App.js';
-import mainPageComponent from "./components/mainPage/mainPageComponent"
+import MainPageComponent from "./components/mainPage/mainPageComponent"
 import './index.css';
 import store, { history } from "./store/store";
 import { Provider } from "react-redux";

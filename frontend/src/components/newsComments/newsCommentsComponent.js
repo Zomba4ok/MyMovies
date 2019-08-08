@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const newsCommentComponent = ({ newsComment, user }) => (
+const NewsCommentComponent = ({ newsComment, user }) => (
     <div className="CommentOrReview">
         <div className="NameAndPhoto">
             <p>{newsComment.author.ID}</p>
@@ -17,7 +17,7 @@ const newsCommentComponent = ({ newsComment, user }) => (
     </div>
 )
 
-newsCommentComponent.React.propType = {
+NewsCommentComponent.React.propType = {
 }
 
-export default newsCommentComponent;
+export default NewsCommentComponent;

@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 const BaseFrameComponent = ({ user }) => (
     <div className="root">
@@ -21,7 +21,8 @@ const BaseFrameComponent = ({ user }) => (
             <input type="text" />
             <button>User Search</button>
             {user.isAuthenticated ? (
-                    <a href="">{user.username}</a>
+
+                    <a href=""><img src={user.avatar} />{user.username}</a>
 
                 ) : (
                     <div>
@@ -34,6 +35,6 @@ const BaseFrameComponent = ({ user }) => (
             company info
         </div>
     </div>
-)
+);
 
 export default BaseFrameComponent;

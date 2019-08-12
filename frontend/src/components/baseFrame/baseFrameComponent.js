@@ -6,8 +6,8 @@ const BaseFrameComponent = ({ user }) => (
         <div className="borders topMenu" >
             <ul className="horizontalMenu">
                 <li className="title"><a href="/">MyMovies.com</a></li>
-                <li><a href="...">Films</a>
-                    <ul className="dropdownList">
+                <li ><a href="...">Films</a>
+                    <ul className="dropDownMenu">
                         <li><a href="...">Premieres</a></li>
                         <li><a href="...">Top</a></li>
                         <li><a href="...">Series</a></li>

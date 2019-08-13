@@ -1,0 +1,33 @@
+.mainContainer {
+    top: 10%;
+    left: 5%;
+    border-radius: 20px;
+    height: 2000px;
+    width: 60%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    background: #55C1F4;
+    z-index: 1;
+    opacity: .9;
+}
+.topFilms {
+
+}
+.topFilms > h1 {
+    color: #FFFFFF;
+    text-align: center;
+    text-shadow: -1px 1px 0 #302F2D;
+}
+.topFilms > a {
+
+}
+
+.filmsSlideMenu {
+
+}
+
+.filmsSlideMenu > a > img {
+    align-items: center;
+    margin-right: 10px;
+    height: 250px;
+    border: 2px outset #FFFFFF;
+}

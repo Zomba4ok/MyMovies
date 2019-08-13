@@ -1,18 +1,23 @@
 import React from "react";
+import * as styles from "./styles.css";
 
 const MainPageComponent = ({ news, topFilms, categories }) => (
-    <div className="root">
-        <h1>MyFilms.com</h1>
-        <div className="TopFilms">
-            {topFilms.map((film, i) =>
-                <link key={i} to=""><img src={film.poster} /></link>)}
-            <link to="">Watch more top films</link>
+    <div className="mainContainer">
+        <div className="topFilms">
+            <h1>Best films of this week</h1>
+            <div className="filmsSlideMenu">
+                <button ></button>
+                {topFilms.map((film, i) =>
+                    <a key={i} href=""><img src={film.poster} /></a>)}
+                <button ></button>
+            </div>
+            <a href="">More top films</a>
         </div>
         <div className="Searching">
             <input type="text" />
             <button></button>
             {categories.map((category, i) =>
-                <a key={i} href={window.location.hostname + "/search" + "..."}>{category}</a>)}
+                <a key={i} href={window.location.hostname + "/search" + "..."}>{category.name}</a>)}
         </div>
     </div>
 )

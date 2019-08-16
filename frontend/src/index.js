@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App.js';
-
 import './index.css';
 import store, { history } from "./store/store";
 import { Provider } from "react-redux";

@@ -1,15 +1,15 @@
-import { connct } from "react-redux";
+import { connect } from "react-redux";
 import baseFrameComponent from "../../components/baseFrame/baseFrameComponent";
 
 const mapStateToProps = state => ({
-    user: state.user
+    user: state.baseFrameReducer.user
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
 
 });
 
-export default connct(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(baseFrameComponent)

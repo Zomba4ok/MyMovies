@@ -1,7 +1,7 @@
 import React from "react";
 import * as styles from "./styles.css";
 
-const BaseFrameComponent = ({ user }) => (
+const BaseFrameComponent = ( props ) => (
         <div className="borders topMenu" >
             <ul className="horizontalMenu">
                 <li className="title"><a href="/">MyMovies.com</a></li>
@@ -19,10 +19,10 @@ const BaseFrameComponent = ({ user }) => (
                 <li><a href="/">People</a></li>
             </ul>
             <div style={{position: "absolute", top: 0, right: "30px"}}>
-                {user.isAuthenticated ? (
+                {props.user.isAuthenticated ? (
                         <a href="" className="userAccount">
-                            <p>{user.username}</p>
-                            <img src={user.avatar} />
+                            <p>{props.user.username}</p>
+                            <img src={props.user.avatar} />
                         </a>
                     ) : (
                         <a href="" className="userAccount">

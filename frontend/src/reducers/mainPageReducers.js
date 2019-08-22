@@ -1,16 +1,29 @@
 import { SLIDE_LEFT, SLIDE_RIGHT } from "../actions/actionTypes";
+import img1 from "../img1.jpg";
+import img from "../img.jpg";
+import MainPageComponent from "../components/mainPage/mainPageComponent";
+import React from "react";
 
-export default (state, action) => {
+const initialState = {
+
+}
+
+export default (state=initialState, action) => {
     switch (action.type) {
         case SLIDE_LEFT: {
             return {
-                films: action.topFilms
+                ...state,
+                films: action.payload
             }
         }
         case SLIDE_RIGHT: {
             return {
-                films: action.topFilms
+                ...state,
+                films: action.payload
             }
+        }
+        default: {
+            return state
         }
     }
 }

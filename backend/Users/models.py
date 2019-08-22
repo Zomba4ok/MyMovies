@@ -7,7 +7,8 @@ from time import clock
 from .validators import UsernameValidator, validate_birthday
 from hashlib import md5
 
-#add favorites films
+
+# add favorites films
 def get_avatar_address(instance, filename):
     hashed_filename = md5(instance.username)
     return 'Images/{}/{}/{}'.format(
@@ -19,7 +20,7 @@ def get_avatar_address(instance, filename):
 class UserManager(BaseUserManager):
     user_in_migrations = True
 
-    def _create_user(self,  email, username, full_name,
+    def _create_user(self, email, username, full_name,
                      birthday, password, **extra_fields):
 
         if not email:
@@ -41,7 +42,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_user(self,  email, username, full_name, birthday,
+    def create_user(self, email, username, full_name, birthday,
                     password, **extra_fields):
 
         extra_fields.setdefault("is_staff", False)
@@ -50,7 +51,7 @@ class UserManager(BaseUserManager):
             email, username, birthday, password, **extra_fields
         )
 
-    def create_superuser(self,  email, username, full_name, birthday,
+    def create_superuser(self, email, username, full_name, birthday,
                          password, **extra_fields):
 
         extra_fields.setdefault("is_staff", True)
@@ -64,10 +65,16 @@ class UserManager(BaseUserManager):
         if extra_fields.get("is_active") is not True:
             raise ValueError("Superuser must have is_active = True.")
 
-
         return self._create_user(
             email, username, full_name, birthday, password, **extra_fields
         )
+
+
+class UserPermission(models.Model):
+    category_name = models.CharField(max_length=50, default="user")
+
+    def __str__(self):
+        return self.category_name
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -94,7 +101,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_subscribed = models.BooleanField(default=False)
     subscribe_start = models.DateField(null=True)
     subscribe_end = models.DateField(null=True)
-    user_permissions_category = models.CharField(default='user', max_length=20)
+    user_permission = models.ForeignKey(to=UserPermission, on_delete=models.DO_NOTHING, related_name='user_permission', null=True)
     reviews_number = models.IntegerField(default=0)
     objects = UserManager()
 
@@ -117,7 +124,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         if not self.is_subscribed:
             self.is_subscribed = True
             self.subscribe_start = datetime.date.today()
-        self.subscribe_end += datetime.date(days=30*duration)
+        self.subscribe_end += datetime.date(days=30 * duration)
 
     def add_review(self):
         self.reviews_number += 1

@@ -46,9 +46,9 @@ class Language(models.Model):
 
 class Trailer(models.Model):
     name = models.CharField(max_length=50)
-    trailer_file = models.ForeignKey(
-        to=Film, on_delete=models.CASCADE, related_name='trailers')
-    trailer = models.FileField(upload_to=get_film_trailer_address, null=True)
+    film = models.ForeignKey(
+        to=Film, on_delete=models.CASCADE, related_name='trailers', null=True)
+    trailer_file = models.FileField(upload_to=get_film_trailer_address)
     description = models.TextField(max_length=200, blank=True)
 
     def __str__(self):
@@ -58,7 +58,7 @@ class Trailer(models.Model):
 class FilmImage(models.Model):
     image_file = models.ImageField(upload_to=get_film_image_address)
     film = models.ForeignKey(
-        to=Film, on_delete=models.CASCADE, related_name='images')
+        to=Film, on_delete=models.CASCADE, related_name='images', null=True)
     description = models.TextField(blank=True, max_length=200)
 
     def __str__(self):

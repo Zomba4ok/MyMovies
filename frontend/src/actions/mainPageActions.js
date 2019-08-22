@@ -1,11 +1,12 @@
 import { SLIDE_LEFT, SLIDE_RIGHT } from "./actionTypes";
 
-export const slideLeft = (topFilms) => ({
+export const slideLeft = (films) => ({
     type: SLIDE_LEFT,
-    topFilms: topFilms.concat(topFilms.slice(0,1))
+    payload: films.concat(films.splice(0,1))
+
 })
 
-export const slideRight = (topFilms) => ({
+export const slideRight = (films) => ({
     type : SLIDE_RIGHT,
-    topFilms: topFilms.concat(topFilms.slice(0,topFilms.length))
+    payload: films.concat(films.splice(0, films.length-1))
 })

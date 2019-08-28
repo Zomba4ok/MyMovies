@@ -1,45 +1,49 @@
-.mainContainer {
-    width: 100%;
-    z-index: 1;
+a {
+    text-decoration: none;
 }
 
-.topFilms {
+.main-div {
+    width: 100%;
+    z-index: 1;
     display: flex;
     flex-direction: column;
 }
 
-.topFilms > h1 {
-    padding-bottom: 80px;
-    color: #FFFFFF;
-    text-align: center;
-    text-shadow: -1px 1px 0 #302F2D;
+.top-films {
+    display: flex;
+    flex-direction: column;
 }
 
-.topFilms > a {
+.top-films > h1 {
+    color: #FFFFFF;
+    text-align: center;
+    text-shadow: -1px 1px 0 #302f2d;
+    margin-bottom: 80px;
+}
+.top-films > a {
     align-self: flex-end;
     padding: 10px;
     margin-right: 20px;
     margin-top: 20px;
-    text-decoration: none;
     color: #FFFFFF;
-    text-shadow: -1px 1px 0 #302F2D;
+    text-shadow: -1px 1px 0 #302f2d;
     font-size: 25px;
     font-weight: bold;
     width: 175px;
 }
 
-.topFilms > a:hover {
+.top-films > a:hover {
     color: #f5dd5d;
 }
 
-.filmsSlideMenu {
+.films-slide-menu {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
 
-.filmsSlideMenu > a > img {
+.films-slide-menu > a > img {
     align-items: center;
     margin-right: 10px;
     height: 400px;
@@ -47,7 +51,7 @@
     /*box-shadow: -5px 5px 2px #302F2D;*/
 }
 
-.slideButton {
+.slide-button {
     background: transparent;
     align-self: center;
     height: 75px;
@@ -57,51 +61,84 @@
     outline: none;
 }
 
-.slideButton:hover {
+.slide-button:hover {
     cursor: pointer;
 }
 
-.slideButton > img {
+.slide-button > img {
     height: 75px;
 }
 
-.slideButton:active > img {
+.slide-button:active > img {
     border: 2px inset white;
 }
 
-.searchAndNews {
+.search-and-news {
     display: flex;
     flex-direction: row;
+}
+
+.search-and-news > button {
+    width: 50px;
+    height: 250px;
+    margin-top: 300px;
+    outline: none;
+    background: #7e7e7e;
+    border: 2px outset #acacac;
+}
+
+.search-and-news > button:active {
+    border: 2px inset #acacac;
+}
+
+.search-and-news > button:active .search {
+    display: flex;
+}
+
+.search-and-news > button > p {
+    transform: rotate(270deg);
+    color: #ffffff;
+    font-size: 28px;
+    margin-top: 80px;
+    text-shadow: -1px 1px 0 #302f2d;
+}
+
+.search-and-news > button:active > p {
+    margin-top: 85px;
+    margin-left: 3px
 
 }
 
 .search {
-    display: flex;
     flex-direction: column;
-    margin-top: 75px;
-    margin-left: 50px;
+    margin-top: 155px;
+    padding: 20px;
     width: 20%;
+    height: 500px;
+    border: 3px outset #acacac;
+    align-items: center;
 }
 
 .search > h2 {
     color: #FFFFFF;
     padding-bottom: 10px;
-    text-shadow: -1px 1px 0 #302F2D;
+    text-shadow: -1px 1px 0 #302f2d;
 }
 
-.freeSearch {
+.free-search {
     display: flex;
     flex-direction: row;
+    align-self: start;
 }
 
-.freeSearch > input {
+.free-search > input {
     background: transparent;
     color: #ffffff;
     outline: none;
     border: 2px outset #ffffff;
 }
 
-.freeSearch > button {
+.free-search > button {
     background: transparent;
     border: none;
     border: none;
@@ -110,45 +147,51 @@
     outline: none;
 }
 
-.freeSearch > button:hover {
+.free-search > button:hover {
     cursor: pointer;
 
 }
 
-.freeSearch > button:active {
+.free-search > button:active {
     margin: 0;
     border: 2px inset #ffffff;
 }
 
-.freeSearch > button > img {
+.free-search > button > img {
     width: 20px;
     height: 20px;
     align-self: center;
     vertical-align: middle;
 }
-.oneClickSearch {
+
+.one-click-search {
     display: flex;
     flex-direction: row;
+    margin-top: 20px;
 }
-.oneClickSearch > div {
+.one-click-search > hr  {
+    width: 1px;
+    height: 300px;
+    margin: 0 20px 0 20px;
+    border: none;
+    background: radial-gradient(#acacac, #ffffff);
+}
+.one-click-search > div {
     display: flex;
     flex-direction: column;
-    padding: 0 20px 0 0;
 }
 
-.oneClickSearch > div > h3 {
+.one-click-search > div > h3 {
     color: #ffffff;
     margin: 10px 0 10px 0;
 }
 
-.oneClickSearch > div > a {
+.one-click-search > div > a {
     padding-bottom: 5px;
     color: #FFFFFF;
-    text-decoration: none;
-    text-align: center;
 }
 
-.oneClickSearch > div > a:hover {
+.one-click-search > div > a:hover {
     color: #f5dd5d;
 }
 
@@ -156,25 +199,52 @@
     display: flex;
     flex-direction: column;
     margin-top: 75px;
-    width: 80%;
+    width: 100%;
 }
-.news > h2 {
+
+.news > a {
+    width: auto;
+    height: auto;
     align-self: center;
-    color: #FFFFFF;
 }
+
+.news > a:hover {
+    cursor: pointer;
+}
+
+.news > a > h2 {
+    align-self: center;
+    color: #ffffff;
+    padding-bottom: 10px;
+}
+
+.news > a:hover > h2 {
+    color: #f5dd5d;
+}
+
 .news > div {
     display: flex;
     flex-direction: row;
-}
-.article {
-    dispaly: flex;
-    flex-direction: column;
-}
-.article > a > img {
     align-self: center;
-    height: 200px;
 }
-.article > a > p {
+
+.article {
+    display: flex;
+    flex-direction: row;
+    height: 400px;
+    width: 600px;
+    border: 3px outset #acacac;
+    margin: 0 50px 50px 50px;
+}
+
+.article > img {
+    align-self: center;
+    height: 400px;
+    margin-right: 20px;
+    border-right: 3px inset #acacac;
+}
+
+.article > p {
     color: #ffffff;
-    font-size: 14px;
+    font-size: 18px;
 }

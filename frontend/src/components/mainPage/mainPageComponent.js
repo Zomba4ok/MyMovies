@@ -7,36 +7,38 @@ import searchImage from "./search.png";
 import NewsPreviewComponent from "../news/newsPrivewComponent";
 
 const MainPageComponent = (props) => (
-    <div className="mainContainer">
-        <div className="topFilms">
+    <div className="main-div">
+        <div className="top-films">
             <h1>Best films of this week</h1>
-            <div className="filmsSlideMenu">
-                <button className="slideButton" onClick={props.slideLeft.bind(this, props.films)}><img
+            <div className="films-slide-menu">
+                <button className="slide-button" onClick={props.slideLeft.bind(this, props.films)}><img
                     src={arrowLeftImage}></img></button>
                 <SlideMenuComponent/>
-                <button className="slideButton" onClick={props.slideRight.bind(this, props.films)}><img
+                <button className="slide-button" onClick={props.slideRight.bind(this, props.films)}><img
                     src={arrowRightImage}></img></button>
             </div>
             <a href="">More top films</a>
         </div>
-        <div className="searchAndNews">
-            <div className="search">
+        <div className="search-and-news">
+            <div className="search" style={props.searchDivStyle}>
                 <h2>Find a movie to your taste</h2>
-                <div className="freeSearch">
+                <div className="free-search">
                     <input type="text"/>
                     <button><img src={searchImage}></img></button>
                 </div>
-                <div className="oneClickSearch">
+                <div className="one-click-search">
                     <div>
                         <h3>Categories</h3>
                         {props.categories.map((category, i) =>
                             <a key={i} href={window.location.hostname + "/search" + "..."}>{category.name}</a>)}
                     </div>
+                    <hr />
                     <div>
                         <h3>Genres</h3>
                         {props.genres.map((category, i) =>
                             <a key={i} href={window.location.hostname + "/search" + "..."}>{category.name}</a>)}
                     </div>
+                    <hr />
                     <div>
                         <h3>Producers</h3>
                         {props.producers.map((category, i) =>
@@ -44,21 +46,27 @@ const MainPageComponent = (props) => (
                     </div>
                 </div>
             </div>
+            <button onClick={props.changeSearchDivStyle.bind(this, props.searchDivStyle)}><p>Search</p></button>
             <div className="news">
-                <h2>News</h2>
+                <a><h2>News</h2></a>
                 <div>
                     <div>
                         {props.news.map((article, i) => {
-                            if (i <= Math.round(props.news.length)) {
+                            if (i < Math.round(props.news.length / 2)) {
                                 return (
-                                    <NewsPreviewComponent />
+                                    <NewsPreviewComponent key={i} article={article}/>
                                 )
                             }
-
                         })}
                     </div>
                     <div>
-
+                        {props.news.map((article, i) => {
+                            if (i >= Math.round(props.news.length / 2)) {
+                                return (
+                                    <NewsPreviewComponent key={i} article={article}/>
+                                )
+                            }
+                        })}
                     </div>
                 </div>
             </div>

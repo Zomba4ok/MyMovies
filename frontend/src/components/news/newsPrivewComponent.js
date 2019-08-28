@@ -1,13 +1,14 @@
 import React from "react";
 
 
-const NewsPreviewComponent = ({ article, key }) => (
-    <div className="article" >
-        <a key={key} href={window.location.hostname + "/news" + "..."}>
-            <img src={article.mainImage} />
+const NewsPreviewComponent = ({article}) => (
+    <a href={window.location.hostname + "/news" + "..."}>
+        <div className="article">
+            <img src={article.mainImage}/>
             <p>{article.description}</p>
-        </a>
-    </div>
+
+        </div>
+    </a>
 )
 
 export default NewsPreviewComponent;

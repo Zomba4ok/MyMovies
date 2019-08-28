@@ -1,0 +1,69 @@
+.main-div {
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-div > h1 {
+    color: #ffffff;
+    padding: 40px 0 80px 0;
+}
+
+.scroll-message {
+    align-self: start;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 110px;
+}
+
+.scroll-message > img {
+    border: none;
+    height: 40px;
+    alignSelf: start;
+    paddingLeft: 100px
+}
+
+.scroll-message > p {
+    padding-left: 10px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.film-info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+
+}
+
+.image-set {
+    display: flex;
+    flex-direction: row;
+    padding-left: 100px;
+}
+
+.image-set > img {
+    height: 516px;
+    border: 2px outset #acacac;
+}
+
+.additional-images {
+    display: flex;
+    flex-direction: column;
+    height: 520px;
+    padding-right: 10px;
+    overflow-y: auto;
+}
+
+.additional-images > img {
+    height: 100px;
+    border: 2px outset #acacac;
+}
+
+.additional-images::-webkit-scrollbar {
+    width: 0px
+}

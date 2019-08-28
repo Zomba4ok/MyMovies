@@ -3,7 +3,7 @@ import React from "react"
 const FilmPreviewComponent = ({ film }) =>
     <div className="oneFilmBlock">
         <img src={film.poster} />
-        <div className="filmInfo">
+        <div className="film-info">
             <h3>{film.name}</h3>
             <p>{film.description}</p>
             <p className="AgeRating">{film.age_rate}</p>

@@ -2,11 +2,11 @@ import React from "react";
 import * as styles from "./styles.css";
 
 const BaseFrameComponent = ( props ) => (
-        <div className="borders topMenu" >
-            <ul className="horizontalMenu">
+        <div className="borders top-menu" >
+            <ul className="horizontal-menu">
                 <li className="title"><a href="/">MyMovies.com</a></li>
                 <li ><a href="...">Films</a>
-                    <ul className="dropDownMenu">
+                    <ul className="drop-down-menu">
                         <li><a href="...">Premieres</a></li>
                         <li><a href="...">Top</a></li>
                         <li><a href="...">Series</a></li>
@@ -20,12 +20,12 @@ const BaseFrameComponent = ( props ) => (
             </ul>
             <div style={{position: "absolute", top: 0, right: "30px"}}>
                 {props.user.isAuthenticated ? (
-                        <a href="" className="userAccount">
+                        <a href="" className="user-account">
                             <p>{props.user.username}</p>
                             <img src={props.user.avatar} />
                         </a>
                     ) : (
-                        <a href="" className="userAccount">
+                        <a href="" className="user-account">
                             <p>Sign up</p>
                             <p>&nbsp;/&nbsp;</p>
                             <p>Sign in</p>

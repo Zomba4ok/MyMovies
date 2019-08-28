@@ -1,14 +1,41 @@
-import { createStore, compose, applyMiddleware } from "redux";
-import { syncHistoryWithStore } from 'react-router-redux';
+import {createStore, compose, applyMiddleware} from "redux";
+import {syncHistoryWithStore} from 'react-router-redux';
 import rootReducer from '../reducers/index.js';
-import { createBrowserHistory } from "history";
+import {createBrowserHistory} from "history";
 import img1 from "../img1.jpg";
 import img from "../img.jpg";
 
 
 const defaultState = {
+    slideMenuReducer: {
+        showProp: true
+    },
+    filmPageReducer: {
+        film: {
+            name: 'Inception',
+            poster: img,
+            description: 'gadjsgdas;ljd;kasgj',
+            age_rate: '21',
+            average_rate: 4.2,
+            producer: 'gdsgasdgs',
+            duration: 152,
+            premiere: 12 - 12 - 2021,
+            film_file: img1,
+            film_company: 'asfasf',
+            images: [
+                {image_file: img1},
+                {image_file: img},
+                {image_file: img},
+                {image_file: img1},
+                {image_file: img},
+                {image_file: img},
+                {image_file: img1},
+                {image_file: img},
+                {image_file: img1}]
+        }
+    },
     mainPageReducer: {
-        news: [],
+        searchDivStyle: {display: "none"},
         films: [
             {poster: img1},
             {poster: img},
@@ -65,6 +92,59 @@ const defaultState = {
             username: "Zomba4ok",
             avatar: img
         }
+    },
+    newsReducer: {
+        news: [
+            {
+                title: 'sgasd',
+                mainImage: img1,
+                images: [img1, img, img],
+                description: 'afkjdhsfkjdhas asdkjfh aksjh dkshfaf das fkahkl hf asdfafsfa',
+                context: 'asfas'
+            },
+            {
+                title: 'sgasd',
+                mainImage: img1,
+                images: [img1, img, img],
+                description: 'afkjdhsfkjdhas asdkjfh aksjh dkshfaf das fkahkl hf asdfafsfa',
+                context: 'asfas'
+            },
+            {
+                title: 'sgasd',
+                mainImage: img1,
+                images: [img1, img, img],
+                description: 'afkjdhsfkjdhas asdkjfh aksjh dkshfaf das fkahkl hf asdfafsfa',
+                context: 'asfas'
+            },
+            {
+                title: 'sgasd',
+                mainImage: img1,
+                images: [img1, img, img],
+                description: 'afkjdhsfkjdhas asdkjfh aksjh dkshfaf das fkahkl hf asdfafsfa',
+                context: 'asfas'
+            },
+            {
+                title: 'sgasd',
+                mainImage: img1,
+                images: [img1, img, img],
+                description: 'afkjdhsfkjdhas asdkjfh aksjh dkshfaf das fkahkl hf asdfafsfa',
+                context: 'asfas'
+            },
+            {
+                title: 'sgasd',
+                mainImage: img1,
+                images: [img1, img, img],
+                description: 'afkjdhsfkjdhas asdkjfh aksjh dkshfaf das fkahkl hf asdfafsfa',
+                context: 'asfas'
+            },
+            {
+                title: 'sgasd',
+                mainImage: img1,
+                images: [img1, img, img],
+                description: 'afkjdhsfkjdhas asdkjfh aksjh dkshfaf das fkahkl hf asdfafsfa',
+                context: 'asfas'
+            }
+        ]
     }
 }
 

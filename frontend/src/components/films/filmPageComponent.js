@@ -1,39 +1,37 @@
-import React from "react";
+import React from 'react';
+import * as styles from './styles.css'
+import arrowDownImage from './arrowDown.png'
 
-const filmPageComponent = ({ film }) =>
-    <div className="root">
-        <div className="filmInfo">
-            <h2>{film.name}</h2>
-            <div className="imageSet">
-                <img src={film.poster} />
-                {film.image.image_file.map((image, i) =>
-                    <img key={i} src={image} />)}
+const FilmPageComponent = (props) => (
+    <div className="main-div">
+        <h1>{props.film.name}</h1>
+        {(props.film.images.length > 5) ?
+            <div className="scroll-message">
+                <img src={arrowDownImage}/>
+                <p>Scroll to see more</p>
+            </div> : null
+        }
+        <div className="film-info">
+            <div className="image-set">
+                <div className="additional-images">
+                    {props.film.images.map((image, i) =>
+                        <img key={i} src={image.image_file}/>)
+                    }
+                </div>
+                <img src={props.film.poster}/>
             </div>
-            <p className="AgeRating">{film.age_rate}</p>
-            <p>{film.average_rate}</p>
-            <p>{film.film_company}</p>
-            <p>{film.producer}</p>
-            <p>{film.duration}</p>
-            <p>{film.premiere}</p>
+            <p className="AgeRating">{props.film.age_rate}</p>
+            <p>{props.film.average_rate}</p>
+            <p>{props.film.film_company}</p>
+            <p>{props.film.producer}</p>
+            <p>{props.film.duration}</p>
+            <p>{props.film.premiere}</p>
         </div>
-        <p>{film.description}</p>
-        {[1, 2, 3, 4, 5].map(i => 
-            <input key={i} type="radio" />)}
-        <video src={film.film_file}></video>
+        <p>{props.film.description}</p>
+        {[1, 2, 3, 4, 5].map(i =>
+            <input key={i} type="radio"/>)}
+        <video src={props.film.film_file}></video>
     </div>
-//to add comments
+)
 
-filmPage.propTypes = {
-   name: React.propTypes.string,
-   poster: React.propTypes.string,
-   description: React.propTypes.string,
-   age_rate: React.propTypes.number,
-   average_rate: React.propTypes.number,
-   producer: React.propTypes.string,
-   duration: React.propTypes.object,
-   premiere: React.propTypes.object,
-   film_file: React.propTypes.string,
-//   image.image_file: React.propTypes.string,
-}
-
-export default { filmPageComponent }
+export default FilmPageComponent

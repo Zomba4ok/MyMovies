@@ -4,7 +4,7 @@ import NewsCommentComponent from "../newsComments/newsCommentsComponent.js"
 const NewsPageComponent = ({ news }) => (
     <div className="root">
         <h3>{news.title}</h3>
-        <div className="imageSet">
+        <div className="image-set">
             {news.image.image_file.map((image, i) =>
                     <img key={i} src={image} />   )}
         </div>

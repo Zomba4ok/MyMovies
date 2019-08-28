@@ -31,7 +31,16 @@ class NewsImage(models.Model):
     news = models.ForeignKey(
         to=News, on_delete=models.CASCADE, related_name='image')
     description = models.CharField(blank=True, max_length=200)
-    mainImage = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.description[:10]
+
+
+class NewsManeImage(models.Model):
+    image_file = models.ImageField(upload_to=get_news_image_address)
+    news = models.ForeignKey(
+        to=News, on_delete=models.CASCADE, related_name='main_image')
+    description = models.CharField(blank=True, max_length=200)
 
     def __str__(self):
         return self.description[:10]

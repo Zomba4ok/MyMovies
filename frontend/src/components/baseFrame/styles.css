@@ -1,18 +1,18 @@
-.topMenu {
+.top-menu {
     background: transparent;
     width: 100%;
     height: 75px;
     z-index: 3;
 }
-.horizontalMenu {
+.horizontal-menu {
     display: flex;
     flex-direction: row;
 }
-.horizontalMenu > li{
+.horizontal-menu > li{
     list-style-type: none;
     z-index: 4;
 }
-.horizontalMenu > li > a {
+.horizontal-menu > li > a {
     display: block;
     text-decoration: none;
     top: 8px;
@@ -23,24 +23,24 @@
     padding-left: 30px;
     text-shadow: -1px 1px 0 #302F2D;
 }
-.horizontalMenu > li > a:hover {
+.horizontal-menu > li > a:hover {
     color: #f5dd5d;
 }
-.horizontalMenu > li > ul {
+.horizontal-menu > li > ul {
     list-style-type: none;
     display: none;
     position: absolute;
     top: 55px;
     left: 250px;
 }
-.horizontalMenu > li:hover > ul{
+.horizontal-menu > li:hover > ul{
     border: 3px outset #FFFFFF;
     display: flex;
     flex-direction: column;
     background: transparent;
     padding: 0 10px 0 10px;
 }
-.dropDownMenu > li > a {
+.drop-down-menu > li > a {
     display: block;
     padding: 5px 0 0 0;
     text-decoration: none;
@@ -49,7 +49,7 @@
     font-size: 20px;
     color: #FFFFFF;
 }
-.dropDownMenu> li > a:hover {
+.drop-down-menu> li > a:hover {
     color: #f5dd5d;
 }
 li.title > a{+
@@ -76,14 +76,14 @@ li.title > a:hover {
     left: -5px;
     color: #f5dd5d;
 }
-.userAccount {
+.user-account {
     display: flex;
     height: 75px;
     flex-direction: row-reverse;
     text-decoration: none;
     align-items: center;
 }
-.userAccount > img {
+.user-account > img {
     margin: 10px;
     border-radius: 30px;
     border: 1px solid #FFFFFF;
@@ -91,13 +91,13 @@ li.title > a:hover {
     width: 40px;
 
 }
-.userAccount > p{
+.user-account > p{
     color: #FFFFFF;
     font-weight: bold;
     text-shadow: -1px 1px 0 #302F2D;
 }
 
-.userAccount > p:hover {
+.user-account > p:hover {
     color: #f5dd5d;
 }
 

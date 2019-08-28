@@ -1,4 +1,4 @@
-import { SLIDE_LEFT, SLIDE_RIGHT } from "../actions/actionTypes";
+import {CHANGE_SEARCH_DIV_STYLE, SLIDE_LEFT, SLIDE_RIGHT} from "../actions/actionTypes";
 import img1 from "../img1.jpg";
 import img from "../img.jpg";
 import MainPageComponent from "../components/mainPage/mainPageComponent";
@@ -20,6 +20,12 @@ export default (state=initialState, action) => {
             return {
                 ...state,
                 films: action.payload
+            }
+        }
+        case CHANGE_SEARCH_DIV_STYLE: {
+            return {
+                ...state,
+                searchDivStyle: action.payload
             }
         }
         default: {

@@ -12,8 +12,8 @@ class App extends Component {
     return (
       <div className="app">
             <BaseFrameComponent />
-            {/*<MainPageComponent />*/}
-            <FilmPageComponent />
+            <MainPageComponent />
+            {/*<FilmPageComponent />*/}
       </div>
     );
   }

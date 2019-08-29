@@ -20,6 +20,7 @@ a {
     text-shadow: -1px 1px 0 #302f2d;
     margin-bottom: 80px;
 }
+
 .top-films > a {
     align-self: flex-end;
     padding: 10px;
@@ -169,13 +170,15 @@ a {
     flex-direction: row;
     margin-top: 20px;
 }
-.one-click-search > hr  {
+
+.one-click-search > hr {
     width: 1px;
     height: 300px;
     margin: 0 20px 0 20px;
     border: none;
     background: radial-gradient(#acacac, #ffffff);
 }
+
 .one-click-search > div {
     display: flex;
     flex-direction: column;

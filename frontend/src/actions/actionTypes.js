@@ -1,4 +1,6 @@
 export const RATE_FILM = "RATE_FILM"
+export const OPEN_MODAL = "OPEN_MODAL"
+export const CLOSE_MODAL = "CLOSE_MODAL"
 export const SLIDE_LEFT = "SLIDE_LEFT"
 export const SLIDE_RIGHT = "SLIDE_RIGHT"
 export const CHANGE_SEARCH_DIV_STYLE = "CHANGE_SEARCH_DIV_STYLE"

@@ -5,12 +5,7 @@ import arrowDownImage from './arrowDown.png'
 const FilmPageComponent = (props) => (
     <div className="main-div">
         <h1>{props.film.name}</h1>
-        {(props.film.images.length > 5) ?
-            <div className="scroll-message">
-                <img src={arrowDownImage}/>
-                <p>Scroll to see more</p>
-            </div> : null
-        }
+
         <div className="film-info">
             <div className="image-set">
                 <div className="additional-images">

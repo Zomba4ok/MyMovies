@@ -1,13 +1,15 @@
 import React from "react";
 import * as styles from "./styles.css";
-import { CSSTransition } from "react-transition-group";
+import {CSSTransition} from "react-transition-group";
 
 const SlideMenuComponent = (props) => (
     props.films.map((film, i) => {
         if (0 <= i && i < 5) {
             return <CSSTransition
-                in={props.ShowProp}>
-                <a key={i} href="">
+                in={props.ShowProp}
+                key={i}
+                timeout={1}>
+                <a href="">
                     <img src={film.poster}
                          style={{
                              height: (

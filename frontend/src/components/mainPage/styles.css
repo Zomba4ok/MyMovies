@@ -66,7 +66,9 @@ a {
     background: transparent;
     outline: none;
 }
-
+.slide-button-icon {
+    padding:0 5px 0 5px;
+}
 .slide-button-icon:active {
     color: #d9c44e;
     border: 3px inset #d9c44e;

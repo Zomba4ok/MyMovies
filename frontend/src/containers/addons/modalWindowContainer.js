@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import filmPageComponent from "../../components/films/filmPageComponent";
-import {rateFilm, openModal} from "../../actions/filmsActions";
+import ModalWindowComponent from "../../components/addons/modalWindowComponent";
+import {openModal, closeModal} from "../../actions/filmsActions";
 
 const mapStateToProps = state => ({
     film: state.filmPageReducer.film,
@@ -10,6 +10,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
     openModal(item) {
         dispatch(openModal(item))
+    },
+    closeModal() {
+        dispatch(closeModal())
     },
     rateFilm(id, rating) {
         dispatch(rateFilm(id, rating))

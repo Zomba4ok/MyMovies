@@ -5,7 +5,6 @@ import arrowDownImage from './arrowDown.png'
 const FilmPageComponent = (props) => (
     <div className="main-div">
         <h1>{props.film.name}</h1>
-
         <div className="film-info">
             <div className="image-set">
                 <div className="additional-images">
@@ -13,7 +12,7 @@ const FilmPageComponent = (props) => (
                         <img key={i} src={image.image_file}/>)
                     }
                 </div>
-                <img src={props.film.poster}/>
+                <img src={props.film.poster} onClick={props.openModal.bind(this, props.film.poster)}/>
             </div>
             <p className="AgeRating">{props.film.age_rate}</p>
             <p>{props.film.average_rate}</p>

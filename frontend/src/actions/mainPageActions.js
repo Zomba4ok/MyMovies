@@ -1,4 +1,10 @@
-import {SLIDE_LEFT, SLIDE_RIGHT, CHANGE_SEARCH_DIV_STYLE, REVERT_SHOW_PROP} from "./actionTypes";
+import {
+    SLIDE_LEFT,
+    SLIDE_RIGHT,
+    CHANGE_SEARCH_DIV_STYLE,
+    REVERT_SHOW_PROP,
+} from "./actionTypes";
+
 
 export const slideLeft = (films) => ({
     type: SLIDE_LEFT,
@@ -13,7 +19,10 @@ export const slideRight = (films) => ({
 
 export const changeSearchDivStyle = (searchDivStyle) => ({
     type: CHANGE_SEARCH_DIV_STYLE,
-    payload: (searchDivStyle.display == "none") ? {...searchDivStyle, display: "flex"} : {...searchDivStyle, display: "none"}
+    payload: (searchDivStyle.display === "none") ? {...searchDivStyle, display: "flex"} : {
+        ...searchDivStyle,
+        display: "none"
+    }
 })
 export const revertShowProp = (showProp) => ({
     type: REVERT_SHOW_PROP,

@@ -1,5 +1,4 @@
 import React from "react";
-import * as styles from "./styles.css";
 import {CSSTransition} from "react-transition-group";
 
 const SlideMenuComponent = (props) => (

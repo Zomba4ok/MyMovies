@@ -7,9 +7,9 @@ export const rateFilm = (id, rating) => ({
     payload: rating
 })
 
-export const openModal = (image) => ({
+export const openModal = (item) => ({
     type: OPEN_MODAL,
-    payload: image
+    payload: item
 })
 
 export const closeModal = () => ({

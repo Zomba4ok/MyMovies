@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
     baseFrameReducer,
     newsReducer,
     filmPageReducer,
-    slideMenuReducer
+    slideMenuReducer,
 });
 
 export default rootReducer;

@@ -4,6 +4,8 @@ import rootReducer from '../reducers/index.js';
 import {createBrowserHistory} from "history";
 import img1 from "../img1.jpg";
 import img from "../img.jpg";
+import arrowLeftNormal from "../arrowLeftNormal.png"
+import arrowRightNormal from "../arrowRightNormal.png"
 
 
 const defaultState = {
@@ -35,6 +37,7 @@ const defaultState = {
         }
     },
     mainPageReducer: {
+        slideButtons: {left: arrowLeftNormal, right: arrowRightNormal},
         searchDivStyle: {display: "none"},
         films: [
             {poster: img1},

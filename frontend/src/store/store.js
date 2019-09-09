@@ -90,10 +90,12 @@ const defaultState = {
         }
     },
     baseFrameReducer: {
+        isUserMenuOpen : false,
         user: {
             isAuthenticated: true,
             username: "Zomba4ok",
-            avatar: img
+            avatar: img,
+            notifications: 999
         }
     },
     newsReducer: {

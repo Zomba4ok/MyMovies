@@ -24,7 +24,7 @@ const MainPageComponent = (props) => (
                 <h2>Find a movie to your taste</h2>
                 <div className="free-search">
                     <input type="text"/>
-                    <button><FontAwesomeIcon icon={faSearch} className="ASD"></FontAwesomeIcon></button>
+                    <button><FontAwesomeIcon icon={faSearch} color="#ffffff"></FontAwesomeIcon></button>
                 </div>
                 <div className="one-click-search">
                     <div>

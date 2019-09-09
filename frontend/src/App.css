@@ -3,3 +3,7 @@
   flex-direction: column;
   align-items: center;
 }
+
+.app::-webkit-scrollbar {
+    width: 0px;
+}

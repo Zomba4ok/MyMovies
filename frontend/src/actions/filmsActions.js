@@ -4,12 +4,12 @@ import {RATE_FILM, OPEN_MODAL, CLOSE_MODAL} from "./actionTypes";
 
 export const rateFilm = (id, rating) => ({
     type: RATE_FILM,
-    payload: rating
+    payload: false
 })
 
-export const openModal = (item) => ({
+export const openModal = () => ({
     type: OPEN_MODAL,
-    payload: item
+    payload: true
 })
 
 export const closeModal = () => ({

@@ -1,79 +1,88 @@
 import React from "react";
-import SlideMenuComponent from "../../containers/mainPage/slideMenuContainer";
-import NewsPreviewComponent from "../news/newsPrivewComponent";
+import {faChevronLeft, faChevronRight} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faChevronLeft, faChevronRight, faSearch} from "@fortawesome/free-solid-svg-icons";
-import * as styles from "./styles.css";
+import styles from "./styles.css";
+import {CSSTransition} from "react-transition-group";
 
 
-const MainPageComponent = (props) => (
-    <div className="main-div">
-        <div className={"top-films"}>
-            <h1>Best films of this week</h1>
-            <div className="films-slide-menu">
-                <button className="slide-button" onClick={props.slideLeft.bind(this, props.films)}><FontAwesomeIcon
-                    icon={faChevronLeft} size="6x" color="#d6d6d6" className="slide-button-icon" /></button>
-                <SlideMenuComponent/>
-                <button className="slide-button" onClick={props.slideRight.bind(this, props.films)}><FontAwesomeIcon
-                    icon={faChevronRight} size="6x" color="#d6d6d6" className="slide-button-icon"/></button>
-            </div>
-            <a href="">More top films</a>
-        </div>
-        <div className="search-and-news">
-            <div className="search" style={props.searchDivStyle}>
-                <h2>Find a movie to your taste</h2>
-                <div className="free-search">
-                    <input type="text"/>
-                    <button><FontAwesomeIcon icon={faSearch} color="#ffffff"></FontAwesomeIcon></button>
-                </div>
-                <div className="one-click-search">
-                    <div>
-                        <h3>Categories</h3>
-                        {props.categories.map((category, i) =>
-                            <a key={i} href={window.location.hostname + "/search" + "..."}>{category.name}</a>)}
-                    </div>
-                    <hr/>
-                    <div>
-                        <h3>Genres</h3>
-                        {props.genres.map((category, i) =>
-                            <a key={i} href={window.location.hostname + "/search" + "..."}>{category.name}</a>)}
-                    </div>
-                    <hr/>
-                    <div>
-                        <h3>Producers</h3>
-                        {props.producers.map((category, i) =>
-                            <a key={i} href={window.location.hostname + "/search" + "..."}>{category.name}</a>)}
-                    </div>
+const MainPageComponent = (props) => {
+    const [isSlideOpen, setSlideStyle] = React.useState(false)
+    const openSlide = () => setSlideStyle(true)
+    return (
+        <div className="main-div">
+            <div className="top-films">
+                <div className="films-slide-menu">
+                    {props.films.map((film) => {
+                        return (
+                            <CSSTransition
+                                timeout={100}
+                                key={film.id}
+                                in={isSlideOpen}
+                            >
+                                <div onClick={() => openSlide()}>
+                                    <div className="hidden-film-slide" style={{backgroundImage: `url(${film.poster})`}}>
+
+                                    </div>
+                                    <div className="shown-film-slide">
+
+                                    </div>
+                                    {/*<a href={window.location.hostname + "..."}><h1>{film.name}</h1></a>*/}
+                                    {/*<div className="description-container">*/}
+                                    {/*    <a href={window.location.hostname + "..."}><img src={film.poster}/></a>*/}
+                                    {/*    <p>{film.description}</p>*/}
+                                    {/*</div>*/}
+                                    {/*<div className="back-button-container"*/}
+                                    {/*     onClick={props.hideHiddenSlide.bind(this, film.id)}>*/}
+                                    {/*    <FontAwesomeIcon icon={faChevronLeft}/>*/}
+                                    {/*    <p>back</p>*/}
+                                    {/*</div>*/}
+                                </div>
+                            </CSSTransition>
+                        )
+                    })}
                 </div>
             </div>
-            <button onClick={props.changeSearchDivStyle.bind(this, props.searchDivStyle)}><p>Search</p></button>
             <div className="news">
-                <a><h2>News</h2></a>
-                <div>
-                    <div>
-                        {props.news.map((article, i) => {
-                            if (i < Math.round(props.news.length / 2)) {
+                {
+                    (!props.news.shown_news_group.show_news_list) ? (
+                        <div className="news-previews">
+                            {props.news.news_groups.map((news_group, i) => {
                                 return (
-                                    <NewsPreviewComponent key={i} article={article}/>
+                                    <div className="news-tape-preview" key={i}
+                                         onClick={props.showNewsList.bind(this, news_group.news_list)}>
+                                        <FontAwesomeIcon icon={news_group.group_image}
+                                                         className="news-tape-preview-icon"
+                                                         size="5x"/>
+                                        <h2>{news_group.group_name}</h2>
+                                    </div>
                                 )
-                            }
-                        })}
-                    </div>
-                    <div>
-                        {props.news.map((article, i) => {
-                            if (i >= Math.round(props.news.length / 2)) {
-                                return (
-                                    <NewsPreviewComponent key={i} article={article}/>
-                                )
-                            }
-                        })}
-                    </div>
-                </div>
+                            })}
+                        </div>
+                    ) : (
+                        <div>
+                            <div className="back-button-container" onClick={props.hideNewsList}>
+                                <FontAwesomeIcon icon={faChevronLeft}/>
+                                <p>back</p>
+                            </div>
+                            <div className="news-tape">
+                                {props.news.shown_news_group.news_list.map((article, i) => {
+                                    return (
+                                        <div className="article" key={i}>
+                                            <a href={window.location.hostname + "/news" + "..."}>
+                                                <img src={article.mainImage}/>
+                                                <p>{article.description}</p>
+                                            </a>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                    )
+                }
             </div>
         </div>
-    </div>
-)
-//To add searching ny genres, producers, actors etc...
+    )
+}
 // mainPageComponent.React.propTypes = {
 // }
 

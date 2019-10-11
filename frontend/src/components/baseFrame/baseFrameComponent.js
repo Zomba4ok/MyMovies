@@ -3,10 +3,11 @@ import "./styles.css";
 import {Modal} from "@material-ui/core";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
+import {CSSTransition} from "react-transition-group";
 
 const BaseFrameComponent = (props) => (
     <div className="top-panel">
-        <div className="title">
+        <div className="label">
             <a href="/">
                 <h1 style={{zIndex: "12", marginTop: "5px", color: "#d9c44e"}}>M</h1><h1
                 style={{zIndex: "11", marginTop: "20px", marginLeft: "-20px", color: "#d6d6d6"}}>M</h1>
@@ -33,7 +34,7 @@ const BaseFrameComponent = (props) => (
 
                     >
                         <ul className="base-menu user-menu">
-                            <h1>User menu</h1>
+                            {/*<h1>User menu</h1>*/}
                             <li><a href="">My profile</a></li>
                             <li>
                                 <a href="">Notifications</a>
@@ -61,7 +62,3 @@ const BaseFrameComponent = (props) => (
 );
 
 export default BaseFrameComponent;
-//
-// <div className="borders bottomMenu">
-//     <p style={{position:"absolute", left:"43%", color:"#FFFFFF"}}>There are some information about our site</p>
-// </div>

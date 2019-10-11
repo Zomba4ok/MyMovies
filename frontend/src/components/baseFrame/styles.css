@@ -1,8 +1,9 @@
 .top-panel {
-    background: linear-gradient(#312e97, #232158);
     width: 100%;
     height: 75px;
     z-index: 10;
+    position: fixed;
+    background: linear-gradient(#312e97, #232158);
     display: flex;
     flex-direction: row;
     box-shadow: -3px 2px 8px #302f2d;
@@ -26,15 +27,15 @@
 
 .base-menu > li:hover > a {
     color: #ffffff;
+    text-shadow: -3px 3px 2px #302F2D;
 }
 
 .base-menu > li > a {
     text-decoration: none;
-    color: #acacac;
+    color: #d6d6d6;
     font-weight: bold;
     font-size: 30px;
     font-family: 'Lobster';
-    text-shadow: -3px 3px 2px #302F2D;
 }
 
 .base-menu > li > ul {
@@ -55,13 +56,15 @@
 
 .user-menu {
     position: absolute;
-    height: 375px;
+    height: 300px;
     right: 125px;
     top: 40px;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    padding: 10px 0 10px 0;
     background: linear-gradient(#262463, #1d1b45);
-    border-radius: 15px;
+    /*border-radius: 15px;*/
     box-shadow: -3px 2px 8px #302f2d;
     outline: none;
 }
@@ -69,7 +72,7 @@
 .user-menu > h1 {
     margin: 10px 0 10px 0;
     text-align: center;
-    color: #d6d6d6;
+    color: #ffffff;
     font-family: 'Lobster';
 }
 
@@ -99,20 +102,20 @@
     font-family: 'Lobster';
 }
 
-.title {
+.label {
     padding-left: 15px;
     margin-right: 35px;
     margin-left: 15px;
 }
 
-.title > a {
+.label > a {
     display: flex;
     flex-direction: row;
     text-decoration: none;
     color: #acacac;
 }
 
-.title > a > h1 {
+.label > a > h1 {
     margin-top: 20px;
     font-family: 'Lobster';
     font-size: 40px;
@@ -138,6 +141,11 @@
     background: #d6d6d6;
     border-radius: 10px;
     outline: none;
+}
+
+.film-search > input::selection {
+    color: #d6d6d6;
+    background: #d9c44e;
 }
 
 .film-search > button {

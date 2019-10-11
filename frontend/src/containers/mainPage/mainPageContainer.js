@@ -1,32 +1,31 @@
 import {connect} from "react-redux";
 import MainPageComponent from "../../components/mainPage/mainPageComponent";
 import {
-    slideLeft,
-    slideRight,
-    changeSearchDivStyle,
+    showNewsList,
+    hideNewsList,
+    showHiddenSlide,
+    hideHiddenSlide,
 } from "../../actions/mainPageActions";
 
 const mapStateToProps = state => ({
     films: state.mainPageReducer.films,
-    news: state.newsReducer.news,
-    categories: state.mainPageReducer.searching.categories,
-    genres: state.mainPageReducer.searching.genres,
-    producers: state.mainPageReducer.searching.producers,
-    searchDivStyle: state.mainPageReducer.searchDivStyle,
-    leftSlideButton: state.mainPageReducer.slideButtons.left,
-    rightSlideButton: state.mainPageReducer.slideButtons.right
+    news: state.mainPageReducer.news,
+    animation_attributes: state.mainPageReducer.animation_attributes,
 });
 
 const mapDispatchToProps = dispatch => ({
-    slideLeft(films) {
-        dispatch(slideLeft(films))
+    showNewsList(news_list) {
+        dispatch(showNewsList(news_list))
     },
-    slideRight(films) {
-        dispatch(slideRight(films))
+    hideNewsList() {
+        dispatch(hideNewsList())
     },
-    changeSearchDivStyle(searchDivStyle) {
-        dispatch(changeSearchDivStyle(searchDivStyle))
+    showHiddenSlide(film_id) {
+        dispatch(showHiddenSlide(film_id))
     },
+    hideHiddenSlide(film_id) {
+        dispatch(hideHiddenSlide(film_id))
+    }
 });
 
 export default connect(

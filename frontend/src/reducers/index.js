@@ -4,7 +4,6 @@ import mainPageReducer from "./mainPageReducers";
 import baseFrameReducer from "./baseFrameReducer";
 import newsReducer from "./newsReducer";
 import filmPageReducer from "./filmPageReducer";
-import slideMenuReducer from "./slideMenuReducer";
 
 
 const rootReducer = combineReducers({
@@ -13,7 +12,6 @@ const rootReducer = combineReducers({
     baseFrameReducer,
     newsReducer,
     filmPageReducer,
-    slideMenuReducer,
 });
 
 export default rootReducer;

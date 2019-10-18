@@ -1,7 +1,8 @@
-from django.db import models
+from .utils import *
+from .validators import validate_film_file_type
 from django.contrib.auth import get_user_model
+from django.db import models
 from hashlib import md5
-from. utils import *
 
 
 User = get_user_model()
@@ -13,7 +14,7 @@ class Film(models.Model):
     description = models.TextField(blank=True, max_length=1000)
     average_rate = models.IntegerField(default=0)
     age_rate = models.IntegerField(blank=False)
-    film_file = models.FileField(upload_to=get_film_address)
+    film_file = models.FileField(upload_to=get_film_address, validators=[validate_film_file_type])
     film_company = models.CharField(max_length=50)
     producing_country = models.CharField(max_length=50)
     producer = models.CharField(max_length=50)
@@ -22,7 +23,7 @@ class Film(models.Model):
     views_count = models.IntegerField(default=0)
     visits_count = models.IntegerField(default=0)
 #   to add actors model
-#   solve problem with linking many parts of film, also solve it on frontend
+#   solve problem with linking many parts of film
 
     def __str__(self):
         return self.name

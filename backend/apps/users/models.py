@@ -1,22 +1,14 @@
 import datetime
+from apps.utils import SetAddressFunctionsClass
 from django.db import models
 from django.core.mail import send_mail
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from datetime import timedelta
 from time import clock
 from .validators import UsernameValidator, validate_birthday
-from hashlib import md5
 
 
 # add favorites films
-def get_avatar_address(instance, filename):
-    hashed_filename = md5(instance.username)
-    return 'Images/{}/{}/{}'.format(
-        hashed_filename.hexdigest()[0:1],
-        hashed_filename.hexdigest()[2:3],
-        hashed_filename.hexdigest())
-
-
 class UserManager(BaseUserManager):
     user_in_migrations = True
 
@@ -86,7 +78,12 @@ class User(AbstractBaseUser, PermissionsMixin):
         unique=True,
         validators=[username_validators],
         error_messages={'unique': 'This username is already taken.'})
-    avatar = models.ImageField(upload_to=get_avatar_address)
+    avatar = models.ImageField(
+        upload_to=SetAddressFunctionsClass(
+            file_type_name='avt',
+            file_family_name='users',
+            file_subfamily_name=''
+        ).set_address_for_file_field)
     email = models.EmailField(
         db_index=True,
         unique=True,

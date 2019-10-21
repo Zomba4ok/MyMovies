@@ -1,20 +1,29 @@
-from .utils import *
 from .validators import validate_film_file_type
+from apps.utils import SetAddressFunctionsClass
 from django.contrib.auth import get_user_model
 from django.db import models
-from hashlib import md5
-
 
 User = get_user_model()
 
 
 class Film(models.Model):
     name = models.CharField(max_length=50)
-    poster_file = models.ImageField(upload_to=get_film_poster_address)
+    poster_file = models.ImageField(
+        upload_to=SetAddressFunctionsClass(
+            file_type_name='pst',
+            file_family_name='films',
+            file_subfamily_name=''
+        ).set_address_for_file_field)
     description = models.TextField(blank=True, max_length=1000)
     average_rate = models.IntegerField(default=0)
     age_rate = models.IntegerField(blank=False)
-    film_file = models.FileField(upload_to=get_film_address, validators=[validate_film_file_type])
+    film_file = models.FileField(
+        upload_to=SetAddressFunctionsClass(
+            file_type_name='flm',
+            file_family_name='films',
+            file_subfamily_name=''
+        ).set_address_for_file_field,
+        validators=[validate_film_file_type])
     film_company = models.CharField(max_length=50)
     producing_country = models.CharField(max_length=50)
     producer = models.CharField(max_length=50)
@@ -22,7 +31,6 @@ class Film(models.Model):
     premiere = models.DateField()
     views_count = models.IntegerField(default=0)
     visits_count = models.IntegerField(default=0)
-#   to add actors model
 #   solve problem with linking many parts of film
 
     def __str__(self):
@@ -49,7 +57,12 @@ class Trailer(models.Model):
     name = models.CharField(max_length=50)
     film = models.ForeignKey(
         to=Film, on_delete=models.CASCADE, related_name='trailers', null=True)
-    trailer_file = models.FileField(upload_to=get_film_trailer_address)
+    trailer_file = models.FileField(
+        upload_to=SetAddressFunctionsClass(
+            file_type_name='trailer',
+            file_family_name='films',
+            file_subfamily_name='trailers'
+        ).set_address_for_file_field)
     description = models.TextField(max_length=200, blank=True)
 
     def __str__(self):
@@ -57,10 +70,15 @@ class Trailer(models.Model):
 
 
 class FilmImage(models.Model):
-    image_file = models.ImageField(upload_to=get_film_image_address)
+    image_file = models.ImageField(
+        upload_to=SetAddressFunctionsClass(
+            file_type_name='image',
+            file_family_name='films',
+            file_subfamily_name='images'
+        ).set_address_for_file_field,)
     film = models.ForeignKey(
         to=Film, on_delete=models.CASCADE, related_name='images', null=True)
     description = models.TextField(blank=True, max_length=200)
 
     def __str__(self):
-        return self.image.name
+        return self.image_file.name

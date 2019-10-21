@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'djoser',
     'django_extensions',
+    'apps.actors',
     'apps.films',
     'apps.film_reviews',
     'apps.news',

@@ -1,7 +1,7 @@
+from .validators import validate_mark
+from apps.films.models import Film
 from django.db import models
 from django.contrib.auth import get_user_model
-from apps.films.models import Film
-from .validators import validate_mark
 
 User = get_user_model()
 

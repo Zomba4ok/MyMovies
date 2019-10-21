@@ -10,7 +10,8 @@ User = get_user_model()
 
 apipatterns = [
     path('', include('apps.users.urls')),
-    path('', include('apps.films.urls'))
+    path('', include('apps.films.urls')),
+    path('', include('apps.actors.urls'))
 ]
 
 

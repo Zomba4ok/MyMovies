@@ -1,9 +1,9 @@
+from .models import User
+from django.conf import settings
+from django.contrib.staticfiles.templatetags.staticfiles import static
 from djoser import constants
 from djoser.serializers import UserCreateSerializer
 from rest_framework import serializers
-from .models import User
-from django.contrib.staticfiles.templatetags.staticfiles import static
-from django.conf import settings
 
 
 class UserSerializer(serializers.ModelSerializer):

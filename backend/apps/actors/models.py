@@ -11,11 +11,8 @@ class Actor(models.Model):
             file_family_name='actors',
             file_subfamily_name=''
         ).set_address_for_file_field, 
-        blank=True)
+        null=True) #Load image and change mull -> default
     descripption = models.TextField(blank=True, max_length=1000)
-
-    def get_fullname(self):
-        return self.first_name + ' ' + self.last_name 
 
 
 
@@ -25,7 +22,8 @@ class ActorImage(models.Model):
             file_type_name='img',
             file_family_name='actors',
             file_subfamily_name='images'
-        ).set_address_for_file_field)
+        ).set_address_for_file_field,
+        null=True)
     actor = models.ForeignKey(
         to=Actor, on_delete=models.CASCADE, related_name='images', null=True)
     description = models.TextField(blank=True, max_length=200)

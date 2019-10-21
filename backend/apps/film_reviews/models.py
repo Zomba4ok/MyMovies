@@ -11,6 +11,6 @@ class FilmReview(models.Model):
     mark = models.IntegerField(validators=[validate_mark])
     context = models.TextField(max_length=1000)
     user = models.ForeignKey(
-        to=User, on_delete=models.CASCADE, related_name='reviews')
+        to=User, on_delete=models.CASCADE, related_name='reviews', null=True)
     film = models.ForeignKey(
-        to=Film, on_delete=models.CASCADE, related_name='reviews')
+        to=Film, on_delete=models.CASCADE, related_name='reviews', null=True)

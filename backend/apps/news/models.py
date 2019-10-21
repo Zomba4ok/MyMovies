@@ -21,7 +21,8 @@ class NewsImage(models.Model):
             file_type_name='img',
             file_family_name='news',
             file_subfamily_name='images'
-        ).set_address_for_file_field)
+        ).set_address_for_file_field,
+        null=True)
     news = models.ForeignKey(
         to=News, on_delete=models.CASCADE, related_name='image')
     description = models.CharField(blank=True, max_length=200)
@@ -36,7 +37,8 @@ class NewsMainImage(models.Model):
             file_type_name='m_img',
             file_family_name='news',
             file_subfamily_name=''
-        ).set_address_for_file_field)
+        ).set_address_for_file_field,
+        null=True)
     news = models.ForeignKey(
         to=News, on_delete=models.CASCADE, related_name='main_image')
     description = models.CharField(blank=True, max_length=200)

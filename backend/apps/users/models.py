@@ -83,7 +83,8 @@ class User(AbstractBaseUser, PermissionsMixin):
             file_type_name='avt',
             file_family_name='users',
             file_subfamily_name=''
-        ).set_address_for_file_field)
+        ).set_address_for_file_field,
+        null=True)
     email = models.EmailField(
         db_index=True,
         unique=True,

@@ -12,7 +12,7 @@ from .validators import UsernameValidator, validate_birthday
 class UserManager(BaseUserManager):
     user_in_migrations = True
 
-    def _create_user(self, email, username, full_name,
+    def _create_user(self, email, username,
                      birthday, password, **extra_fields):
 
         if not email:
@@ -34,7 +34,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_user(self, email, username, full_name, birthday,
+    def create_user(self, email, username, birthday,
                     password, **extra_fields):
 
         extra_fields.setdefault("is_staff", False)
@@ -43,7 +43,7 @@ class UserManager(BaseUserManager):
             email, username, birthday, password, **extra_fields
         )
 
-    def create_superuser(self, email, username, full_name, birthday,
+    def create_superuser(self, email, username, birthday,
                          password, **extra_fields):
 
         extra_fields.setdefault("is_staff", True)
@@ -58,7 +58,7 @@ class UserManager(BaseUserManager):
             raise ValueError("Superuser must have is_active = True.")
 
         return self._create_user(
-            email, username, full_name, birthday, password, **extra_fields
+            email, username, birthday, password, **extra_fields
         )
 
 
@@ -72,12 +72,6 @@ class UserPermission(models.Model):
 class User(AbstractBaseUser, PermissionsMixin):
     username_validators = UsernameValidator()
 
-    username = models.CharField(
-        db_index=True,
-        max_length=50,
-        unique=True,
-        validators=[username_validators],
-        error_messages={'unique': 'This username is already taken.'})
     avatar = models.ImageField(
         upload_to=SetAddressFunctionsClass(
             file_type_name='avt',
@@ -85,26 +79,31 @@ class User(AbstractBaseUser, PermissionsMixin):
             file_subfamily_name=''
         ).set_address_for_file_field,
         null=True)
+    birthday = models.DateField(validators=[validate_birthday])
+    country = models.CharField(max_length=50)
     email = models.EmailField(
         db_index=True,
         unique=True,
         error_messages={'unique': 'This email address is already used.'})
-    full_name = models.CharField(max_length=255)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    birthday = models.DateField(validators=[validate_birthday])
-    country = models.CharField(max_length=50)
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     is_subscribed = models.BooleanField(default=False)
-    subscribe_start = models.DateField(null=True)
-    subscribe_end = models.DateField(null=True)
+    username = models.CharField(
+        db_index=True,
+        max_length=50,
+        unique=True,
+        validators=[username_validators],
+        error_messages={'unique': 'This username is already taken.'})
     user_permission = models.ForeignKey(to=UserPermission, on_delete=models.DO_NOTHING, related_name='user_permission', null=True)
     reviews_number = models.IntegerField(default=0)
+    subscribe_start = models.DateField(null=True)
+    subscribe_end = models.DateField(null=True)
     objects = UserManager()
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email', 'full_name', 'birthday']
+    REQUIRED_FIELDS = ['email', 'first_name', 'last_name' 'birthday']
 
     def __str__(self):
         return self.username
@@ -113,7 +112,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.username
 
     def get_full_name(self):
-        return self.full_name
+        return self.first_name + ' ' + self.last_name
 
     def email_user(self, subject, message, from_email=None, **kwargs):
         send_mail(subject, message, from_email, [self.email], **kwargs)

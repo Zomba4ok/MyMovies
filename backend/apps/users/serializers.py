@@ -13,24 +13,25 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = (
-            'username',
-            'email',
+            'avatar',
             'birthday',
             'country',
-            'avatar',
+            'email',
             'first_name',
             'last_name',
-            'reviews_number',
             'is_subscribed',
-            'user_permissions_category'
+            'username',
+            'user_permission',
+            'reviews_number',
+            'subscribe_end'
         )
 
     def create(self, validated_data):
         return User.objects.create_user(**validated_data)
 
-    def get_avatar(self, obj):
-        url = obj.avatar.url if obj.avatar else static(settings.BLANK_PHOTO)
-        request = self.context.get("request", None)
-        if request is not None:
-            return request.build_absolute_uri(url)
-        return url
+    # def get_avatar(self, obj):
+    #     url = obj.avatar.url if obj.avatar else static(settings.BLANK_PHOTO)
+    #     request = self.context.get("request", None)
+    #     if request is not None:
+    #         return request.build_absolute_uri(url)
+    #     return url

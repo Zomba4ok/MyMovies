@@ -1,0 +1,23 @@
+FROM ubuntu:18.04
+
+RUN apt-get update
+
+RUN apt-get -y install \
+    python \
+    python-pip \
+    python3.7 \
+    python3.7-dev \
+    python3.7-distutils
+
+RUN pip install --upgrade pip setuptools wheel
+RUN pip install \
+    virtualenv \
+    virtualenvwrapper
+
+
+RUN virtualenv -p /usr/bin/python3.7 /venv
+
+WORKDIR /
+ADD requirements.txt .
+RUN apt-get clean && apt-get update
+RUN . /venv/bin/activate; pip install -r requirements.txt

@@ -1,8 +1,6 @@
 from .models import User
 from django.conf import settings
-from django.contrib.staticfiles.templatetags.staticfiles import static
-from djoser import constants
-from djoser.serializers import UserCreateSerializer
+from django.templatetags import static
 from rest_framework import serializers
 
 
